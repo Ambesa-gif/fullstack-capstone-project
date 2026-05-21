@@ -1,19 +1,62 @@
-Footprint Logger
+# Footprint Logger Platform
 
-A full-stack web application for tracking and reducing your daily carbon footprint.
+A full-stack carbon footprint tracking web application that helps users monitor daily activities contributing to carbon emissions.
 
+## Features
 
-Features
-Activity Logging — Log transport, food, and energy activities with a running CO₂ total. Filter by category, view weekly summaries, and persist data with local storage.
-User Authentication — Secure registration and login backed by JWT and hashed password storage.
-Dashboard — View your personal activity log, total emissions, highest-impact categories, weekly reduction goals, and how you compare to the community average.
-Insight Engine — Receive personalised sustainability tips, emission analysis, and behaviour-based goal tracking.
+### Activity Logging
+- Log daily carbon-emitting activities
+- Categories include:
+  - Transport
+  - Food
+  - Energy
+- Running total of CO2 emissions
+- Filter activities by category
+- Local storage support
+- Weekly summaries
 
-Tech Stack
-LayerTechnologiesFrontendReact, Chart.js, CSSBackendNode.js, Express.jsDatabaseMongoDB, MongooseAuthJWT
+### User Authentication
+- User registration
+- User login
+- Secure password storage
+- JWT authentication
 
-Project Structure
+### Dashboard
+- Personal activity logs
+- Total emissions summary
+- Highest emission categories
+- Weekly reduction goals
+- Community average comparison
+
+### Insight Engine
+- Personalized sustainability tips
+- Emission analysis
+- Goal tracking
+- Behaviour insights
+
+---
+
+# Tech Stack
+
+## Frontend
+- React
+- CSS
+- Chart.js
+
+## Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+
+---
+
+# Project Structure
+
+```bash
 fullstack-capstone-project/
+│
 ├── backend/
 │   ├── models/
 │   ├── routes/
@@ -21,58 +64,123 @@ fullstack-capstone-project/
 │   ├── server.js
 │   ├── db.js
 │   └── package.json
+│
 ├── frontend/
 │   ├── src/
 │   ├── public/
 │   └── package.json
+│
 └── README.md
+```
 
-Getting Started
-1. Clone the repository
-bashgit clone https://github.com/Ambesa-gif/fullstack-capstone-project.git
-cd fullstack-capstone-project
-2. Set up the backend
-bashcd backend
+---
+
+# Installation
+
+## Clone Repository
+
+```bash
+git clone https://github.com/Ambesa-gif/fullstack-capstone-project.git
+```
+
+---
+
+# Backend Setup
+
+```bash
+cd backend
 npm install
-Create a .env file in the backend/ directory:
-envMONGO_URI=mongodb://127.0.0.1:27017/footprintlogger
-JWT_SECRET=your_secret_key_here
+```
 
-Note: Replace your_secret_key_here with a strong, random string in production.
+Create a `.env` file:
 
-Start the backend server:
-bashnpm run dev
-3. Set up the frontend
-bashcd frontend
+```env
+MONGO_URI=mongodb://127.0.0.1:27017/footprintlogger
+JWT_SECRET=mysecretkey
+```
+
+Run backend server:
+
+```bash
+npm run dev
+```
+
+---
+
+# Frontend Setup
+
+```bash
+cd frontend
 npm install
 npm start
-The app will be available at http://localhost:3000.
+```
 
-API Reference
-Authentication
-MethodEndpointDescriptionPOST/api/auth/registerRegister a new userPOST/api/auth/loginLog in and receive a JWT
-Activities
-MethodEndpointDescriptionGET/api/activitiesRetrieve all activitiesPOST/api/activitiesLog a new activityDELETE/api/activities/:idDelete an activity
+---
 
-MongoDB Setup
+# API Endpoints
 
-Download and install MongoDB Community Server.
-Start the MongoDB service:
+## Authentication
 
-bash# Windows
+### Register User
+
+```http
+POST /api/auth/register
+```
+
+### Login User
+
+```http
+POST /api/auth/login
+```
+
+---
+
+## Activities
+
+### Get Activities
+
+```http
+GET /api/activities
+```
+
+### Add Activity
+
+```http
+POST /api/activities
+```
+
+### Delete Activity
+
+```http
+DELETE /api/activities/:id
+```
+
+---
+
+# MongoDB
+
+Install MongoDB Community Server:
+
+https://www.mongodb.com/try/download/community
+
+Start MongoDB service:
+
+```bash
 net start MongoDB
+```
 
-# macOS / Linux
-brew services start mongodb-community   # or: sudo systemctl start mongod
+---
 
-Roadmap
+# Future Improvements
 
- Community leaderboard
- AI-powered recommendations
- Mobile-responsive UI
- Carbon reduction badges
- Exportable reports (PDF / CSV)
+- Community leaderboard
+- AI-powered recommendations
+- Mobile responsive UI
+- Carbon reduction badges
+- Export reports
 
+---
 
-Author
+# Author
+
 Ambesa Golide
