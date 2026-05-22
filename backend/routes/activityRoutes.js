@@ -3,29 +3,59 @@ const router = express.Router();
 
 const Activity = require("../models/Activity");
 
+router.get("/", async (req, res) => {
+  try {
+    const activities = await Activity.find();
+    res.json(activities);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 router.post("/", async (req, res) => {
   try {
-    const activity = new Activity(req.body);
+    const { activityType, duration, carbonEmission } = req.body;
 
-    await activity.save();
+    const newActivity = new Activity({
+      activityType,
+      duration,
+      carbonEmission,
+    });
 
-    res.status(201).json(activity);
+    const savedActivity = await newActivity.save();
+
+    res.status(201).json(savedActivity);
   } catch (error) {
+    console.log(error);
+
     res.status(500).json({
-      message: error.message,
+      message: "Failed to create activity",
+      error: error.message,
     });
   }
 });
 
-router.get("/", async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
-    const activities = await Activity.find();
+    const updatedActivity = await Activity.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
 
-    res.json(activities);
+    res.json(updatedActivity);
   } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.delete("/:id", async (req, res) => {
+  try {
+    await Activity.findByIdAndDelete(req.params.id);
+
+    res.json({ message: "Activity deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 });
 
