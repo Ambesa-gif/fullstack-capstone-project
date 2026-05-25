@@ -1,54 +1,88 @@
 # Footprint Logger Platform
 
-A full-stack carbon footprint tracking web application that helps users monitor daily activities contributing to carbon emissions.
+A full-stack carbon footprint tracking web application that helps users monitor daily activities contributing to carbon emissions, analyse their environmental impact, and receive sustainability insights.
 
-## Features
+---
 
-### Activity Logging
-- Log daily carbon-emitting activities
-- Categories include:
-  - Transport
-  - Food
-  - Energy
-- Running total of CO2 emissions
-- Filter activities by category
-- Local storage support
-- Weekly summaries
+# Project Overview
 
-### User Authentication
+The Footprint Logger Platform allows users to:
+
+- Register and log into the platform
+- Add daily carbon-emitting activities
+- View total emissions
+- Track high-emission behaviours
+- Update and delete activities
+- Receive sustainability insights and weekly goals
+- Store activity data using MongoDB
+
+The application was developed as a Developer Capstone Project using the MERN stack principles.
+
+---
+
+# Features
+
+## Activity Logging
+
+- Add daily carbon-emitting activities
+- Update existing activities
+- Delete activities
+- Store activity records in MongoDB
+- Running total of carbon emissions
+- Dashboard activity tracking
+- Weekly sustainability awareness
+
+### Activity Categories
+
+- Transport
+- Food
+- Energy
+
+---
+
+## User Authentication
+
 - User registration
 - User login
-- Secure password storage
-- JWT authentication
+- Secure password handling
+- MongoDB user storage
+- Authentication-ready backend structure
 
-### Dashboard
+---
+
+## Dashboard
+
 - Personal activity logs
 - Total emissions summary
-- Highest emission categories
+- Highest emission activity tracking
 - Weekly reduction goals
-- Community average comparison
+- Sustainability insights and eco tips
 
-### Insight Engine
-- Personalized sustainability tips
-- Emission analysis
-- Goal tracking
-- Behaviour insights
+---
+
+## Insight Engine
+
+- Tracks highest-emission activities
+- Personalized sustainability suggestions
+- Emission monitoring
+- Weekly reduction awareness
 
 ---
 
 # Tech Stack
 
 ## Frontend
-- React
+
+- React.js
+- Axios
 - CSS
-- Chart.js
 
 ## Backend
+
 - Node.js
 - Express.js
 - MongoDB
 - Mongoose
-- JWT Authentication
 
 ---
 
@@ -59,15 +93,25 @@ fullstack-capstone-project/
 │
 ├── backend/
 │   ├── models/
+│   │   ├── User.js
+│   │   └── Activity.js
+│   │
 │   ├── routes/
-│   ├── middleware/
-│   ├── server.js
+│   │   ├── authRoutes.js
+│   │   └── activityRoutes.js
+│   │
 │   ├── db.js
+│   ├── server.js
 │   └── package.json
 │
 ├── frontend/
-│   ├── src/
 │   ├── public/
+│   ├── src/
+│   │   ├── pages/
+│   │   │   └── Dashboard.js
+│   │   ├── App.js
+│   │   └── index.js
+│   │
 │   └── package.json
 │
 └── README.md
@@ -75,7 +119,7 @@ fullstack-capstone-project/
 
 ---
 
-# Installation
+# Installation Guide
 
 ## Clone Repository
 
@@ -87,47 +131,81 @@ git clone https://github.com/Ambesa-gif/fullstack-capstone-project.git
 
 # Backend Setup
 
+## Navigate to Backend Folder
+
 ```bash
 cd backend
+```
+
+## Install Dependencies
+
+```bash
 npm install
 ```
 
-Create a `.env` file:
+## Create Environment Variables
+
+Create a `.env` file inside the backend folder:
 
 ```env
 MONGO_URI=mongodb://127.0.0.1:27017/footprintlogger
 JWT_SECRET=mysecretkey
 ```
 
-Run backend server:
+## Start Backend Server
 
 ```bash
 npm run dev
+```
+
+Expected output:
+
+```bash
+Server running on port 5000
+MongoDB Connected
 ```
 
 ---
 
 # Frontend Setup
 
+## Navigate to Frontend Folder
+
 ```bash
 cd frontend
+```
+
+## Install Dependencies
+
+```bash
 npm install
+```
+
+## Start React Application
+
+```bash
 npm start
+```
+
+Frontend runs on:
+
+```bash
+http://localhost:3000
 ```
 
 ---
 
 # API Endpoints
 
-## Authentication
+# Authentication Routes
 
-### Register User
+## Register User
 
 ```http
 POST /api/auth/register
 ```
 
-### Login User
+## Login User
 
 ```http
 POST /api/auth/login
@@ -135,21 +213,27 @@ POST /api/auth/login
 
 ---
 
-## Activities
+# Activity Routes
 
-### Get Activities
+## Get All Activities
 
 ```http
 GET /api/activities
 ```
 
-### Add Activity
+## Add Activity
 
 ```http
 POST /api/activities
 ```
 
-### Delete Activity
+## Update Activity
+
+```http
+PUT /api/activities/:id
+```
+
+## Delete Activity
 
 ```http
 DELETE /api/activities/:id
@@ -157,9 +241,23 @@ DELETE /api/activities/:id
 
 ---
 
-# MongoDB
+# Completed Features
 
-Install MongoDB Community Server:
+- Full CRUD operations for activities
+- MongoDB database integration
+- REST API using Express.js
+- React frontend integration
+- Axios API communication
+- Dashboard with emissions tracking
+- User authentication system
+- Sustainability insight engine
+- Activity monitoring and management
+
+---
+
+# MongoDB Setup
+
+Download MongoDB Community Server:
 
 https://www.mongodb.com/try/download/community
 
@@ -174,13 +272,16 @@ net start MongoDB
 # Future Improvements
 
 - Community leaderboard
-- AI-powered recommendations
-- Mobile responsive UI
+- AI-powered sustainability recommendations
+- Mobile responsive UI improvements
 - Carbon reduction badges
-- Export reports
+- Export activity reports
+- Advanced data visualizations
 
 ---
 
 # Author
 
-Ambesa Golide
+## Ambesa Golide
+
+Developer Capstone Project — Footprint Logger Platform
